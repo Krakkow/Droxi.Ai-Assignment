@@ -37,3 +37,4 @@ credentials.json
 # Local environment config
 *.env
 .env.*
+.env
