@@ -412,6 +412,66 @@ To disable log capturing temprarily:
 pytest -s -vv
 ```
 
+### 📊 Allure Report (UI Test Reporting)
+
+This project supports Allure Reports for clean, visual test execution summaries.
+
+# 1️⃣ Install Allure CLI (one-time setup)
+
+Download Allure for Windows from the official releases page:
+
+👉 https://github.com/allure-framework/allure2/releases
+
+Extract it to a folder (e.g. C:\allure) and add the bin directory to your system PATH:
+
+```makefile
+C:\allure\bin
+```
+
+Verify Installation:
+
+```bash
+allure --version
+```
+
+Install the python plugin: (it's already added to the requirements.txt so if you install the requirements.txt in the beginning you should be fine)
+
+```bash
+pip install allure-pytest
+```
+
+# 3️⃣ Run tests and generate Allure results
+
+Allure result files are automatically written to ./allure-results via pytest.ini.
+
+Run the UI test suite:
+
+```bash
+pytest ui/tests_ui -vv
+```
+
+Or run a specific scenario:
+
+```bash
+pytest ui/tests/test_trello_urgent_cards.py -vv
+```
+
+# 4️⃣ View the Allure report
+
+Serve the report locally (recommended)
+
+```bash
+allure serve allure-results
+```
+
+This will:
+
+- generate a temporary HTML report
+
+- start a local server
+
+- open the report in your browser automatically
+
 ## ✔ Final Notes
 
 Project is modular and extendable.

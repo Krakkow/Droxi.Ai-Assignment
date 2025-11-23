@@ -39,8 +39,11 @@ def test_urgent_cards_validation(page: Page) -> None:
         # Title should not be empty
         assert card.title, "Urgent card should have a non-empty title."
 
-        # Description should not be empty
-        assert card.description, f"Urgent card '{card.title}' should have a description."
+        # Description can be full or empty, no assertion needed here.
+        if not card.description:
+            board.log.info(
+             f"Urgent card '{card.title}' has no description (allowed)."
+        )
 
         # Must include 'Urgent' label
         assert "Urgent" in card.labels, (

@@ -40,3 +40,5 @@ credentials.json
 .env
 auth.json
 trello_auth_state.json
+
+allure-results
