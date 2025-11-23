@@ -1,0 +1,39 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+.venv/
+venv/
+.env/
+env/
+
+# VSCode
+.vscode/
+
+# Playwright
+playwright-report/
+test-results/
+*.log
+*trace.zip
+
+# Pytest cache
+.pytest_cache/
+
+# Virtual environments
+*.coverage
+coverage.xml
+htmlcov/
+
+# Credentials (IMPORTANT)
+token.json
+credentials.json
+
+# Local environment config
+*.env
+.env.*
