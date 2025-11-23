@@ -38,19 +38,31 @@ qa_automation_assignment/
 ```bash
 git clone <your_repo_url>
 cd qa_automation_assignment
+```
 
-2. Create and activate a virtual environment
+### 2. Create and activate a virtual environment
+
+```bash
 python -m venv venv
 source venv/bin/activate    # Mac/Linux
 venv\Scripts\activate       # Windows
+```
 
-3. Install dependencies
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Install Playwright browsers (for Task #3)
+### 4. Install Playwright browsers (for Task #3)
+
+```bash
 playwright install
+```
 
-🔐 Authentication (IMPORTANT)
+## 🔐 Authentication (IMPORTANT)
+
+```bash
 Gmail API authentication
 
 Before running Gmail tests, generate a token:
@@ -58,7 +70,6 @@ Before running Gmail tests, generate a token:
 Run:
 
 python main.py
-
 
 Login with the provided assignment Gmail account.
 
@@ -78,10 +89,12 @@ TRELLO_API_KEY = "..."
 TRELLO_API_TOKEN = "..."
 TRELLO_BOARD_ID = "2GzdgPlw"
 
-
 These are already included per the assignment instructions.
+```
 
-🧪 Running Tests
+## 🧪 Running Tests
+
+```bash
 Run all tests:
 pytest -q
 
@@ -90,12 +103,13 @@ pytest tests_api -q
 
 Run only UI tests (after Task #3):
 pytest tests_ui -q
+```
 
-📝 Task #1 – Manual Testing
+## 📝 Task #1 – Manual Testing
 
 Below is a brief outline of the manual testing scenarios:
 
-🧪 Task #2 – Automated Sync Validation (API)
+## 🧪 Task #2 – Automated Sync Validation (API)
 
 Implemented using:
 
@@ -113,7 +127,7 @@ test_merge_sync.py
 
 These compare live Gmail inbox data with live Trello board data.
 
-🖥️ Task #3 – UI Automation (Playwright + POM)
+## 🖥️ Task #3 – UI Automation (Playwright + POM)
 
 Included files:
 
@@ -127,7 +141,7 @@ Scenario 1: Urgent Cards Validation
 
 Scenario 2: “summarize the meeting” card validation
 
-✔ Final Notes
+## ✔ Final Notes
 
 Project is modular and extendable.
 
@@ -136,4 +150,3 @@ Credentials are secured via .gitignore.
 All tests execute via pytest.
 
 The solution follows clean code and POM design practices.
-```
