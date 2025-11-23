@@ -207,17 +207,103 @@ This is intentional and documented as part of Task #2’s expected analysis.
 
 ## 🖥️ Task #3 – UI Automation (Playwright + POM)
 
-Included files:
+This project includes a full UI automation suite built with Python, Playwright, and the Page Object Model (POM) design pattern.
 
-Page Objects under ui/pages/
+## 📄 Implemented Scenarios
 
-Test cases under tests_ui/
+Scenario 1 – Urgent Cards Validation
 
-Scenarios implemented:
+Automatically validates all cards across the entire Trello board that have an “Urgent” label.
+For each urgent card, the test extracts and verifies:
 
-Scenario 1: Urgent Cards Validation
+- Card title
 
-Scenario 2: “summarize the meeting” card validation
+- Card description
+
+- Card labels
+
+- Column/status (To Do, In Progress, Done)
+
+Scenario 2 – “summarize the meeting” Card Validation
+
+Locates the “summarize the meeting” card and performs full validation of:
+
+- Exact card title
+
+- Exact card description
+
+- Required label(s) (e.g., “New”)
+
+- Correct column (“To Do”)
+
+The test opens the card modal, extracts required fields from the UI, validates them, and closes the modal cleanly.
+
+## ▶️ How to Run the UI Tests
+
+## 1️⃣ Install Dependencies
+
+Inside the project root:
+
+```bash
+pip install -r requirements.txt (this is something you already did to run the api tests)
+```
+
+## 2️⃣ Install Playwright browsers
+
+```bash
+playwright install
+```
+
+## 3️⃣ Generate Trello Authentication State (first-time only)
+
+To run tests without manually logging in each time, Playwright uses
+trello_auth_state.json as a stored login session.
+Run:
+
+```bash
+python auth_setup.py
+```
+
+A browser will open — log into the Trello board using the provided credentials.
+The session will be saved automatically.
+
+The file is ignored by Git for security.
+
+## 4️⃣ Run All UI Tests
+
+```bash
+pytest ui/tests_ui --headed -vv
+```
+
+You can also run headless:
+
+```bash
+pytest ui/tests_ui -vv
+```
+
+## 5️⃣ Run a Specific Scenario
+
+Scenario 1 - Urgent Cards Validation
+
+```bash
+pytest ui/tests_ui/test_trello_urgent_cards.py --headed -vv
+
+```
+
+Scenario 2 - "Summerize the meeting" card
+
+```bash
+pytest ui/tests/test_trello_summarize_meeting.py --headed -vv
+```
+
+## 6️⃣ Log Output
+
+Logging is enabled via pytest.ini
+To disable log capturing temprarily:
+
+```bash
+pytest -s -vv
+```
 
 ## ✔ Final Notes
 
@@ -228,3 +314,7 @@ Credentials are secured via .gitignore.
 All tests execute via pytest.
 
 The solution follows clean code and POM design practices.
+
+```
+
+```
