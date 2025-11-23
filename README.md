@@ -92,6 +92,37 @@ TRELLO_BOARD_ID = "2GzdgPlw"
 These are already included per the assignment instructions.
 ```
 
+## 🔒 Environment Variables (.env)
+
+This project uses a `.env` file to store sensitive configuration values such as the Trello API key and token.
+
+A template file is provided:
+
+```sql
+.env.example
+# Copy this file to .env and replace the values with real credentials
+TRELLO_API_KEY=your-key-here
+TRELLO_API_TOKEN=your-token-here
+```
+
+# 1. Create your real .env file
+
+```bash
+cp .env.example .env       # Mac/Linux
+copy .env.example .env     # Windows
+```
+
+# 2. Edit .env and insert the actual Trello credentials (provided in the assignment).
+
+The .env file is ignored by Git and never uploaded to GitHub.
+
+The project automatically loads .env using:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
 ## 🧪 Running Tests
 
 ```bash
