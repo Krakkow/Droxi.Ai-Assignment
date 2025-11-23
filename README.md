@@ -156,10 +156,10 @@ test_urgent_sync.py
 
 test_merge_sync.py
 
-“Note: when running against the provided Gmail/Trello environment,
+NOTE: when running against the provided Gmail/Trello environment,
 the sync tests report mismatches for ‘Baking secrets’, ‘Create automation tests’ and ‘Have a great year’.
 These failures represent detected inconsistencies between the expected behavior and the sample data,
-not issues in the test code.”
+not issues in the test code.
 
 These compare live Gmail inbox data with live Trello board data.
 
