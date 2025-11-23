@@ -100,7 +100,7 @@ class GmailClient:
                 "body": body
             })
 
-            return emails
+        return emails
         
     def get_urgent_emails(self, max_results: int = 50) -> List[Dict]:
         """

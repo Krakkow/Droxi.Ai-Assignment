@@ -6,6 +6,8 @@ as a card in Trello with “Urgent” label.
 """
 
 import pytest
+from api.helpers import normalize_subject_for_trello
+
 
 def _build_cards_by_title(cards: list[dict]) -> dict[str, list[dict]]:
     """
@@ -54,7 +56,11 @@ def test_urgent_emails_have_urgent_label(gmail_client, trello_client):
     problems: list[str] = []
 
     for email in urgent_emails:
-        subject = (email["subject"] or "").strip()
+        raw_subject = email["subject"] or ""
+
+        if not raw_subject.lower().startswith("task:"):
+            continue # Only Task emails participate in Trello sync
+        subject = normalize_subject_for_trello(raw_subject)
 
         # Find cards with matching title
         matching_cards = cards_by_title.get(subject, [])
